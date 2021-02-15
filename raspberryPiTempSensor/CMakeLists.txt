@@ -10,6 +10,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../bin)
 add_subdirectory(src/main/saunaPiData)
 add_subdirectory(src/main/sensor)
 add_subdirectory(src/test/SaunaPiDataTest)
+add_subdirectory(src/test/CoolingFilterTest)
 
 add_library(SaunaPi_lib STATIC
 		src/main/SaunaPi.cpp)
@@ -29,7 +30,7 @@ target_link_libraries(SaunaPi PRIVATE
 add_library(tempSensor_lib STATIC
 		src/main/TempSensor.cpp
 		src/main/simpleInterpolation.h
-		src/main/correlationFile.h)
+		src/main/correlationFile.h src/main/coolingFilter/CoolingFilter.cpp src/main/coolingFilter/CoolingFilter.h)
 
 add_executable(readSensor
         src/main/readSensor.cpp

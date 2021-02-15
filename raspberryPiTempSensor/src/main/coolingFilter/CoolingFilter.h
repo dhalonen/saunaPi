@@ -1,0 +1,14 @@
+//
+// Created by David Halonen on 2/15/21.
+//
+
+#ifndef RASPBERRYPITEMPSENSOR_COOLINGFILTER_H
+#define RASPBERRYPITEMPSENSOR_COOLINGFILTER_H
+
+
+class CoolingFilter {
+
+};
+
+
+#endif //RASPBERRYPITEMPSENSOR_COOLINGFILTER_H
