@@ -17,7 +17,7 @@ extern "C" {
 int main()
 {
     TEMP_MAP
-    simpleTools::interpolation <float, float> piThermInterp( piThermometer  );
+    simpleTools::interpolation <float, float> piThermInterp(piThermometer, 0.01);
     float humidity = 0.0, temperature = 0.0;
     int sensorReadResult = pi_2_dht_read(AM2302, 4, &humidity, &temperature );
     if(sensorReadResult == -4 )
@@ -29,13 +29,17 @@ int main()
         temperature *= 1.8;     //Convert to Fahrenheit
         temperature += 32;
         auto thermometerTemp = piThermInterp.getY( temperature );
-        std::time_t t = std::time( nullptr );
-        std::cout << std::put_time( std::localtime( &t ), "%c %Z" ) << "\t";
-        std::cout << "humidity = " << (int) humidity << "\t";
-        std::cout << "recorded temp = ";
-        std::cout << (int) temperature;
-        std::cout << "temperature = " << (int) thermometerTemp << "\t";
-        std::cout << "Optimal index (200 is ideal): " << (int) (humidity + thermometerTemp) << "\n";
+        if(std::get<0>(thermometerTemp) == simpleTools::InterpolationResultType::OK) {
+            std::time_t t = std::time(nullptr);
+            std::cout << std::put_time(std::localtime(&t), "%c %Z") << "\t";
+            std::cout << "humidity = " << (int) humidity << "\t";
+            std::cout << "recorded temp = ";
+            std::cout << (int) temperature;
+            std::cout << "temperature = " << (int) std::get<1>(thermometerTemp) << "\t";
+            std::cout << "Optimal index (200 is ideal): " << (int) (humidity + std::get<1>(thermometerTemp)) << "\n";
+        } else {
+            std::cout << "Error on interpolating result. Try again.";
+        }
     }
     else
     {

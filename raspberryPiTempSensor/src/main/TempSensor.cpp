@@ -9,7 +9,7 @@ extern "C" {
 #include "correlationFile.h"
 #include "simpleInterpolation.h"
 TEMP_MAP
-static simpleTools::interpolation <float, float> piThermInterp( piThermometer  );
+static simpleTools::interpolation <float, float> piThermInterp(piThermometer, 0.01);
 
 TempSensor::TempSensor(
         loggerCallback _logger
@@ -37,23 +37,28 @@ void TempSensor::readAndPublishFindings(
         temperature += 32;
         auto thermometerTemp = piThermInterp.getY( temperature );
 
-        recordToTmpSaunaPiLog(humidity, temperature, thermometerTemp);
+        if(std::get<0>(thermometerTemp) == simpleTools::InterpolationResultType::OK)
+        {
+            recordToTmpSaunaPiLog(humidity, temperature, std::get<1>(thermometerTemp));
 
-        //return success, data/png file path
-        std::tuple<bool, std::string, std::string, std::string> addResults;
-        addResults = saunaPiData.add(&thermometerTemp, &humidity);
-        bool success;
-        std::string path;
-        std::string highTempLabel;
-        std::string currentTempLabel;
-        tie(success, path, highTempLabel, currentTempLabel) = addResults;
-        if( !success )
-        {
-            logger("saunaPiData.add() failed.");
-        }
-        else
-        {
-            executePlot(path, highTempLabel, currentTempLabel);
+            //return success, data/png file path
+            std::tuple<bool, std::string, std::string, std::string> addResults;
+            addResults = saunaPiData.add(&std::get<1>(thermometerTemp), &humidity);
+            bool success;
+            std::string path;
+            std::string highTempLabel;
+            std::string currentTempLabel;
+            tie(success, path, highTempLabel, currentTempLabel) = addResults;
+            if( !success )
+            {
+                logger("saunaPiData.add() failed.");
+            }
+            else
+            {
+                executePlot(path, highTempLabel, currentTempLabel);
+            }
+        } else {
+            logger("Interpolation returned error.");
         }
     }
 }
