@@ -1,6 +1,7 @@
 add_executable(coolingFilterTest
         coolingFilterTest.cpp
-        ../include/catch.hpp)
+        ../include/catch.hpp
+        MainCoolingFilterTest.cpp)
 target_link_libraries(coolingFilterTest PRIVATE
         coolingFilter_lib)
 

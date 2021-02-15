@@ -9,6 +9,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../bin)
 
 add_subdirectory(src/main/saunaPiData)
 add_subdirectory(src/main/sensor)
+add_subdirectory(src/main/coolingFilter)
 add_subdirectory(src/test/SaunaPiDataTest)
 add_subdirectory(src/test/CoolingFilterTest)
 
