@@ -13,7 +13,7 @@ readSensor
 botId.txt
 cscope.out
 .idea
-saunaPiDataTest
+Test/SaunaPiDataTest
 build/*
 cmake-build-debug/*
 CMakeCache.txt
