@@ -8,6 +8,34 @@
 
 #include "CoolingFilter.h"
 
+bool CoolingFilter::accept(
+    time_t const * const time,
+    int const temp
+) {
+    double delta = difftime(*time, lastTime);
+    if((int)(delta - 300) > 0)  //greater than 5 min
+    {
+       accept(temp);
+       lastTime = *time;
+    }
+    if(tooEarlyInDay() && isCooling())
+    {
+        return false;
+    }
+    return true;
+}
+
+bool CoolingFilter::tooEarlyInDay(
+){
+    struct tm *timeInfo = localtime(&lastTime);
+    int currentMinutes = timeInfo->tm_hour * 60 + timeInfo->tm_min;
+    if(currentMinutes < earlyMinutesThreshold)
+    {
+        return true;
+    }
+    return false;
+}
+
 void CoolingFilter::accept(
         const int temp
 ) {
@@ -44,7 +72,7 @@ bool CoolingFilter::isCooling(
                 break;
             }
         }
-        std::cout << "\n";
+//        std::cout << "\n";
     } else {
         int lastValue = lastTemps[currentHead];
         for (std::vector<int>::size_type i = currentHead; i < lastTemps.size(); i++) {
@@ -70,7 +98,6 @@ bool CoolingFilter::isCooling(
                     cooling = false;
                     break;
                 }
-
             }
         }
 //        std::cout << "\n";

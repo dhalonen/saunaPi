@@ -7,62 +7,158 @@
 
 #include "../../main/coolingFilter/CoolingFilter.h"
 
+TEST_CASE("Time & temperature")
+{
+    time_t rawtime = time(&rawtime);
+
+    CoolingFilter filter;
+    REQUIRE(filter.accept(&rawtime,135));
+}
+
+TEST_CASE("Non-standard initial values")
+{
+    time_t rawtime = time(&rawtime);
+    CoolingFilter ninetyFilter(6, 0, true, false);
+    REQUIRE(ninetyFilter.accept(&rawtime, 91));
+    CoolingFilter disabled(6, 0, false, false);
+    REQUIRE_FALSE(disabled.isEnabled());
+}
+
 TEST_CASE("In random state")
 {
     CoolingFilter filter;
-    filter.accept(10);
-    REQUIRE_FALSE(filter.isCooling());
-    filter.accept(9);
-    REQUIRE_FALSE(filter.isCooling());
-    filter.accept(28);
-    filter.accept(7);
-    REQUIRE_FALSE(filter.isCooling());
-    filter.accept(46);
-    filter.accept(55);
-    filter.accept(64);
-    REQUIRE_FALSE(filter.isCooling());
-    filter.accept(73);
-    REQUIRE_FALSE(filter.isCooling());
-    filter.accept(2);
-    REQUIRE_FALSE(filter.isCooling());
+    time_t eveningTime = time(&eveningTime);
+    struct tm *evening = localtime(&eveningTime);
+    evening->tm_hour = 19;
+    evening->tm_min = 30;
+
+    time_t now = mktime(evening);
+    REQUIRE(filter.accept(&now,10));
+
+    evening->tm_min += 7;
+    now = mktime(evening);
+    REQUIRE(filter.accept(&now, 9));
+
+    evening->tm_min += 7;
+    now = mktime(evening);
+    REQUIRE(filter.accept(&now, 28));
+
+    evening->tm_min += 7;
+    now = mktime(evening);
+    REQUIRE(filter.accept(&now, 7));
+
+    evening->tm_min += 7;
+    now = mktime(evening);
+    REQUIRE(filter.accept(&now, 46));
+
+    evening->tm_min += 7;
+    now = mktime(evening);
+    REQUIRE(filter.accept(&now, 55));
+
+    evening->tm_min += 7;
+    now = mktime(evening);
+    REQUIRE(filter.accept(&now, 64));
+
+    evening->tm_min += 7;
+    now = mktime(evening);
+    REQUIRE(filter.accept(&now, 73));
+
+    evening->tm_min += 7;
+    now = mktime(evening);
+    REQUIRE(filter.accept(&now, 2));
 }
 
 TEST_CASE("In heating state")
 {
     CoolingFilter filter;
-    filter.accept(10);
-    REQUIRE_FALSE(filter.isCooling());
-    filter.accept(19);
-    filter.accept(28);
-    filter.accept(37);
-    filter.accept(46);
-    filter.accept(55);
-    filter.accept(64);
-    REQUIRE_FALSE(filter.isCooling());
-    filter.accept(73);
-    REQUIRE_FALSE(filter.isCooling());
-    filter.accept(2);
-    REQUIRE_FALSE(filter.isCooling());
+    time_t eveningTime = time(&eveningTime);
+    struct tm *evening = localtime(&eveningTime);
+    evening->tm_hour = 19;
+    evening->tm_min = 30;
+
+    time_t now = mktime(evening);
+    REQUIRE(filter.accept(&now, 10));
+
+    evening->tm_min += 6;
+    now = mktime(evening);
+    REQUIRE(filter.accept(&now, 19));
+
+
+    evening->tm_min += 6;
+    now = mktime(evening);
+    REQUIRE(filter.accept(&now, 28));
+
+    evening->tm_min += 6;
+    now = mktime(evening);
+    REQUIRE(filter.accept(&now, 37));
+
+    evening->tm_min += 6;
+    now = mktime(evening);
+    REQUIRE(filter.accept(&now, 46));
+
+    evening->tm_min += 6;
+    now = mktime(evening);
+    REQUIRE(filter.accept(&now, 55));
+
+    evening->tm_min += 6;
+    now = mktime(evening);
+    REQUIRE(filter.accept(&now, 64));
+
+    evening->tm_min += 6;
+    now = mktime(evening);
+    REQUIRE(filter.accept(&now, 73));
+
+    evening->tm_min += 6;
+    now = mktime(evening);
+    REQUIRE(filter.accept(&now, 2));
 }
 
 TEST_CASE("In cooling state")
 {
-   CoolingFilter isCooling;
-   REQUIRE(isCooling.isCooling());
-   CoolingFilter filter;
-   filter.accept(10);
-   REQUIRE_FALSE(filter.isCooling());
-   filter.accept(9);
-   filter.accept(8);
-   filter.accept(7);
-   filter.accept(6);
-   filter.accept(5);
-   filter.accept(4);
-   REQUIRE(filter.isCooling());
-   filter.accept(3);
-   REQUIRE(filter.isCooling());
-   filter.accept(2);
-   REQUIRE(filter.isCooling());
+    CoolingFilter isCooling;
+    time_t eveningTime = time(&eveningTime);
+    struct tm *evening = localtime(&eveningTime);
+    evening->tm_hour = 23;
+    evening->tm_min = 20;
+
+    time_t now = mktime(evening);
+    REQUIRE(isCooling.accept(&now, 10)); //11:20
+
+    evening->tm_min += 6;
+    now = mktime(evening);
+    REQUIRE(isCooling.accept(&now, 9)); //11:26
+
+    evening->tm_min += 6;
+    now = mktime(evening);
+    REQUIRE(isCooling.accept(&now, 8)); //11:32
+
+    evening->tm_min += 6;
+    now = mktime(evening);
+    REQUIRE(isCooling.accept(&now, 7)); //11:38
+
+    evening->tm_min += 6;
+    now = mktime(evening);
+    REQUIRE(isCooling.accept(&now, 6)); //11:44
+
+    evening->tm_min += 6;
+    now = mktime(evening);
+    REQUIRE(isCooling.accept(&now, 5)); //11:50
+
+    evening->tm_min += 6;
+    now = mktime(evening);
+    REQUIRE(isCooling.accept(&now, 4)); //11:56
+
+    evening->tm_min += 6;
+    now = mktime(evening);
+    REQUIRE_FALSE(isCooling.accept(&now, 3)); //12:02
+
+    evening->tm_min += 6;
+    now = mktime(evening);
+    REQUIRE_FALSE(isCooling.accept(&now, 2));
+
+    evening->tm_min += 6;
+    now = mktime(evening);
+    REQUIRE_FALSE(isCooling.accept(&now, 1));
 }
 
 TEST_CASE("Enabled / Disabled test")
@@ -71,7 +167,7 @@ TEST_CASE("Enabled / Disabled test")
     REQUIRE(enabled.isEnabled());
     enabled.disable();
     REQUIRE_FALSE(enabled.isEnabled());
-    CoolingFilter disabled(false);
+    CoolingFilter disabled(6, 0, false);
     REQUIRE_FALSE(disabled.isEnabled());
     disabled.enable();
     REQUIRE(disabled.isEnabled());
