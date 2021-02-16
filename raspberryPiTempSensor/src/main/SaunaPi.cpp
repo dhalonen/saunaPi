@@ -29,6 +29,7 @@
 #include <iomanip>
 #include <unistd.h>
 
+#include "coolingFilter/CoolingFilter.h"
 #include "TempSensor.h"
 
 void logToTmpSaunaPiLog(
@@ -53,7 +54,8 @@ void signalSetup(){
 
 int main(
 ) {
-    TempSensor tempSensor(logToTmpSaunaPiLog);
+    CoolingFilter filter;
+    TempSensor tempSensor(filter, logToTmpSaunaPiLog);
     signalSetup();
     while(run)
     {

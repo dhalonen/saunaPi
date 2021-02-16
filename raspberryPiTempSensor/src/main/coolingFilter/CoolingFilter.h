@@ -7,6 +7,8 @@
 #ifndef RASPBERRYPITEMPSENSOR_COOLINGFILTER_H
 #define RASPBERRYPITEMPSENSOR_COOLINGFILTER_H
 
+#include <vector>
+
 class CoolingFilter {
 public:
     explicit CoolingFilter(

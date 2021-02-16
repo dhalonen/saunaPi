@@ -12,8 +12,10 @@ TEMP_MAP
 static simpleTools::interpolation <float, float> piThermInterp(piThermometer, 0.01);
 
 TempSensor::TempSensor(
-        loggerCallback _logger
-):
+    CoolingFilter &filter,
+    loggerCallback _logger
+) :
+    filter(filter),
     logger(_logger)
 {
     saunaPiData.setFileSystem(&saunaPiFs);
@@ -39,26 +41,36 @@ void TempSensor::readAndPublishFindings(
 
         if(std::get<0>(thermometerTemp) == simpleTools::InterpolationResultType::OK)
         {
-            recordToTmpSaunaPiLog(humidity, temperature, std::get<1>(thermometerTemp));
-
-            //return success, data/png file path
-            std::tuple<bool, std::string, std::string, std::string> addResults;
-            addResults = saunaPiData.add(&std::get<1>(thermometerTemp), &humidity);
-            bool success;
-            std::string path;
-            std::string highTempLabel;
-            std::string currentTempLabel;
-            tie(success, path, highTempLabel, currentTempLabel) = addResults;
-            if( !success )
-            {
-                logger("saunaPiData.add() failed.");
-            }
-            else
-            {
-                executePlot(path, highTempLabel, currentTempLabel);
-            }
+            recordToTmpSaunaPiLog(&humidity, &temperature, &std::get<1>(thermometerTemp));
+            performRecording(&std::get<1>(thermometerTemp), &humidity);
         } else {
             logger("Interpolation returned error.");
+        }
+    }
+}
+
+void TempSensor::performRecording(
+        float *thermometerTemp,
+        float *humidity
+) {
+    time_t now = time(&now);
+    if(filter.accept(&now, (int) *thermometerTemp))
+    {
+        //returns success, data/png file path
+        std::tuple<bool, std::string, std::string, std::string> addResults;
+        addResults = saunaPiData.add(thermometerTemp, humidity);
+        bool success;
+        std::string path;
+        std::string highTempLabel;
+        std::string currentTempLabel;
+        tie(success, path, highTempLabel, currentTempLabel) = addResults;
+        if( !success )
+        {
+            logger("saunaPiData.add() failed.");
+        }
+        else
+        {
+            executePlot(path, highTempLabel, currentTempLabel);
         }
     }
 }
@@ -94,17 +106,17 @@ void TempSensor::executePlot(
 }
 
 void TempSensor::recordToTmpSaunaPiLog(
-        float const humidity,
-        float const temperature,
-        float const thermometerTemp
+        float const *humidity,
+        float const *temperature,
+        float const *thermometerTemp
 ) {
     std::string line{"humidity = "};
-    line += std::to_string((int) humidity);
+    line += std::to_string((int) *humidity);
     line += "\t recorded temp = ";
-    line += std::to_string((int) temperature);
+    line += std::to_string((int) *temperature);
     line += "\t temperature = ";
-    line += std::to_string((int) thermometerTemp);
+    line += std::to_string((int) *thermometerTemp);
     line += "\t Optimal index (200 is ideal): ";
-    line += std::to_string((int) (humidity + thermometerTemp));
+    line += std::to_string((int) (*humidity + *thermometerTemp));
     logger(line);
 }

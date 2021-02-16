@@ -7,14 +7,17 @@
 
 #include <memory>
 
+#include "coolingFilter/CoolingFilter.h"
 #include "saunaPiData/SaunaPiDataFileSystem.h"
 #include "saunaPiData/SaunaPiData.h"
 
-typedef void (*loggerCallback)(std::string const &line);
+typedef void (*loggerCallback)(
+        std::string const &line);
 
 class TempSensor {
 public:
     explicit TempSensor(
+            CoolingFilter &filter,
             loggerCallback _logger
     );
 
@@ -22,14 +25,20 @@ public:
     );
 
 private:
+    CoolingFilter filter;
     SaunaPiDataFileSystem saunaPiFs;
     SaunaPiData saunaPiData;
     loggerCallback logger;
 
+    void performRecording(
+        float *thermometerTemp,
+        float *humidity
+    );
+
     void recordToTmpSaunaPiLog(
-            float const humidity,
-            float const temperature,
-            float const thermometerTemp
+            float const *humidity,
+            float const *temperature,
+            float const *thermometerTemp
     );
 
     void executePlot(

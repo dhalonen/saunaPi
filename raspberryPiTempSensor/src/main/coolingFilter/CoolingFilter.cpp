@@ -4,7 +4,6 @@
 
 #include <climits>
 #include <iostream>
-#include <vector>
 
 #include "CoolingFilter.h"
 
