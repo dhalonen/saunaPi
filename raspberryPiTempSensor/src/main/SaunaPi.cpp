@@ -1,8 +1,6 @@
 //
 // Created by David Halonen on 1/23/21.
 //
-//TODO incorporate corrected temp value map
-
 //TODO add ASSERTs
 //TODO ensure refs are used, not copy object
 //TODO review Meyer's guidance
@@ -11,8 +9,6 @@
 //TODO try diff compilers: C++ 11, 14, 17, 20 (where possible)
 
 //TODO stub sensor for unit testing
-//TODO create single project w/ three sub-projects on GitHub
-//TODO update to newer version of simpleInterpolation
 //TODO create config file for datafile location, minTemp, console, data only - if these are kept
 //TODO update SauanPiData to return values other than just success/fail
 
