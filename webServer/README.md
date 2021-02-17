@@ -1,7 +1,10 @@
-Very simply a default apache web server that only serves up its index.html file. This index file presents ‘currentStatus.png’, which is a copy of the most recent plot. The Recording program writes this to /var/www/html/currentStatus.png
+Very simply a default apache web server that only serves up its index.html file. This index file presents ‘currentStatus.png’, which is a copy of the most recent plot. The RaspberryPi program writes this to /var/www/html/currentStatus.png.
+
+Installation of webserver is documented here:
 https://www.raspberrypi.org/documentation/remote-access/web-server/apache.md
 
 The index.html is simply:
+```
 <!DOCTYPE html>
 <html>
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -15,10 +18,11 @@ The index.html is simply:
    </body>
 	
 </html>
+```
 
+Use a bit of indirection to get the 'currentStatus.png' updated w/o copying or moving files. Also, gets around permission resets.
 
-Recording
-Create a generic sim link from the generated .png to high-level location:
+Create a generic sim link from the newly generated .png to high-level location:
 ln -s /var/SaunaPiData/2021/Dec/2021-Dec-1.png /var/SaunaPiData/currentStatus.png
 
 
