@@ -50,8 +50,8 @@ void TempSensor::readAndPublishFindings(
 }
 
 void TempSensor::performRecording(
-        float *thermometerTemp,
-        float *humidity
+        float const *thermometerTemp,
+        float const *humidity
 ) {
     time_t now = time(&now);
     if(filter.accept(&now, (int) *thermometerTemp))
