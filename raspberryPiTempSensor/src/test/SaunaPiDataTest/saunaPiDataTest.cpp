@@ -3,13 +3,12 @@
 //
 #include <string>
 
-#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 #include "../include/catch.hpp"
 
 #include "../../main/saunaPiData/SaunaPiData.h"
 #include "SaunaPiDataStubFileSystem.h"
 
-TEST_CASE( "Factorials are computed", "[factorial]" ) {
+TEST_CASE( "SaunaPi data test", "[saunaPi]" ) {
     SaunaPiDataStubFileSystem testFileSystem;
     SaunaPiData doesntExistDataDir("/var/doesntExist");
     float temp = 121.0, humidity = 20.0; //MIN_TEMPERATURE = 120 in SaunaPiData.cpp
