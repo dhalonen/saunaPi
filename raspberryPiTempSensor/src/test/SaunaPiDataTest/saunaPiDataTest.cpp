@@ -8,6 +8,39 @@
 #include "../../main/saunaPiData/SaunaPiData.h"
 #include "SaunaPiDataStubFileSystem.h"
 
+TEST_CASE( "SaunaPi Early Day Test", "[saunaPi]" ) {
+    SaunaPiDataStubFileSystem testFileSystem;
+    SaunaPiData data;
+    data.setFileSystem(&testFileSystem);
+    std::string rootDataDir = data.getRootDataDir();
+    //Here we are ensuring the assumed /var/SaunaPiData dir is in place
+    time_t rawtime = time(&rawtime);
+    struct tm *timeinfo = localtime(&rawtime);
+    timeinfo->tm_hour = 0; //Too early in day to be accepted.
+
+    //add() does a lot:
+    // ensures root data dir exists
+    // ensures the year data dir exists, creates if not
+    // ensures the month data dir exists, creates if not
+    // ensures today's data file exists, creates if not
+    // writes timestamp, temperature, humidity, & optimal value to data file
+    std::tuple<bool, std::string, std::string, std::string> addResults;
+    float temp = 161.0, humidity = 20.0; //MIN_TEMPERATURE = 120 in SaunaPiData.cpp
+    addResults = data.add(&temp, &humidity, timeinfo);
+    bool success = false;
+    std::string path("foo");
+    std::string highTempLabel;
+    std::string currentTempLabel;
+    std::tie(success, path, highTempLabel, currentTempLabel) = addResults;
+    REQUIRE(success);
+    REQUIRE(path.size() == 0);
+    timeinfo->tm_hour = 7; //Let's be sure all is well.
+    addResults = data.add(&temp, &humidity, timeinfo);
+    std::tie(success, path, highTempLabel, currentTempLabel) = addResults;
+    REQUIRE(success);
+    REQUIRE(path.size() != 0);
+}
+
 TEST_CASE( "SaunaPi data test", "[saunaPi]" ) {
     SaunaPiDataStubFileSystem testFileSystem;
     SaunaPiData doesntExistDataDir("/var/doesntExist");

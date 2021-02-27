@@ -50,6 +50,12 @@ std::tuple<bool, std::string, std::string, std::string> SaunaPiData::add(
 
     //Does the current year exist in rootDataDir?
     setYearAndMonth(timeinfo);
+    //If after midnight & prior to 6AM, ignore
+    if(timeinfo->tm_hour <= 5)
+    {
+        return std::make_tuple(true, "", "", "");
+    }
+
     std::string yearDir(rootDataDir);
     yearDir += "/";
     yearDir += year;
