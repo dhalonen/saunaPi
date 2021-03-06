@@ -6,17 +6,26 @@ https://www.raspberrypi.org/documentation/remote-access/web-server/apache.md
 The index.html is simply:
 ```
 <!DOCTYPE html>
+<head>
+  <script type="text/javascript">
+    function stamp()
+    {
+      var node = document.getElementById('plot');
+      node.attributes['src'].value += "?a=" + Math.random().toString();
+    }
+  </script>
+<head>
 <html>
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+
    <head>
       <title>Using Image in Webpage</title>
    </head>
-	
-   <body>
-      <p>Simple Image Insert</p>
-      <img src = "/html/images/currentStatus.png" alt = "Test Image" />
+
+   <body onload="stamp();">
+      <img id="plot" src = "currentStatus.png" alt = "Test Image" />
    </body>
-	
+
 </html>
 ```
 
@@ -30,3 +39,5 @@ From within the /var/www/html dir, create a sim link to the generic link created
 sudo ln -s /var/SaunaPiData/currentStatus.png currentStatus.png
 
 Now we don’t have to fool with updates to /var/www/html permissions.
+
+Note the addition of "?a=" + Math.random().toString() to the image src tag. This is because Safari on iOS doesn't seem to want to update the image with every refresh. By adding a random string to the tag, the current image is always presented.
