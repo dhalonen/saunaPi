@@ -1,0 +1,589 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F54C56C225FC4968002A541D /* ReportBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54C56C125FC4968002A541D /* ReportBlock.swift */; };
+		F5DF8D7125FC472B001A99D3 /* saunaPiPhoneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DF8D7025FC472B001A99D3 /* saunaPiPhoneApp.swift */; };
+		F5DF8D7325FC472B001A99D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DF8D7225FC472B001A99D3 /* ContentView.swift */; };
+		F5DF8D7525FC472E001A99D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5DF8D7425FC472E001A99D3 /* Assets.xcassets */; };
+		F5DF8D7825FC472E001A99D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5DF8D7725FC472E001A99D3 /* Preview Assets.xcassets */; };
+		F5DF8D8325FC472F001A99D3 /* saunaPiPhoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DF8D8225FC472F001A99D3 /* saunaPiPhoneTests.swift */; };
+		F5DF8D8E25FC472F001A99D3 /* saunaPiPhoneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DF8D8D25FC472F001A99D3 /* saunaPiPhoneUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F5DF8D7F25FC472F001A99D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5DF8D6525FC472B001A99D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F5DF8D6C25FC472B001A99D3;
+			remoteInfo = saunaPiPhone;
+		};
+		F5DF8D8A25FC472F001A99D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5DF8D6525FC472B001A99D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F5DF8D6C25FC472B001A99D3;
+			remoteInfo = saunaPiPhone;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F54C56C125FC4968002A541D /* ReportBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportBlock.swift; sourceTree = "<group>"; };
+		F5DF8D6D25FC472B001A99D3 /* saunaPiPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = saunaPiPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5DF8D7025FC472B001A99D3 /* saunaPiPhoneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saunaPiPhoneApp.swift; sourceTree = "<group>"; };
+		F5DF8D7225FC472B001A99D3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F5DF8D7425FC472E001A99D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F5DF8D7725FC472E001A99D3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F5DF8D7925FC472E001A99D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5DF8D7E25FC472F001A99D3 /* saunaPiPhoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = saunaPiPhoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5DF8D8225FC472F001A99D3 /* saunaPiPhoneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saunaPiPhoneTests.swift; sourceTree = "<group>"; };
+		F5DF8D8425FC472F001A99D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5DF8D8925FC472F001A99D3 /* saunaPiPhoneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = saunaPiPhoneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5DF8D8D25FC472F001A99D3 /* saunaPiPhoneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saunaPiPhoneUITests.swift; sourceTree = "<group>"; };
+		F5DF8D8F25FC472F001A99D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F5DF8D6A25FC472B001A99D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5DF8D7B25FC472F001A99D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5DF8D8625FC472F001A99D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F5DF8D6425FC472B001A99D3 = {
+			isa = PBXGroup;
+			children = (
+				F5DF8D6F25FC472B001A99D3 /* saunaPiPhone */,
+				F5DF8D8125FC472F001A99D3 /* saunaPiPhoneTests */,
+				F5DF8D8C25FC472F001A99D3 /* saunaPiPhoneUITests */,
+				F5DF8D6E25FC472B001A99D3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F5DF8D6E25FC472B001A99D3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F5DF8D6D25FC472B001A99D3 /* saunaPiPhone.app */,
+				F5DF8D7E25FC472F001A99D3 /* saunaPiPhoneTests.xctest */,
+				F5DF8D8925FC472F001A99D3 /* saunaPiPhoneUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F5DF8D6F25FC472B001A99D3 /* saunaPiPhone */ = {
+			isa = PBXGroup;
+			children = (
+				F5DF8D7025FC472B001A99D3 /* saunaPiPhoneApp.swift */,
+				F5DF8D7225FC472B001A99D3 /* ContentView.swift */,
+				F5DF8D7425FC472E001A99D3 /* Assets.xcassets */,
+				F5DF8D7925FC472E001A99D3 /* Info.plist */,
+				F5DF8D7625FC472E001A99D3 /* Preview Content */,
+				F54C56C125FC4968002A541D /* ReportBlock.swift */,
+			);
+			path = saunaPiPhone;
+			sourceTree = "<group>";
+		};
+		F5DF8D7625FC472E001A99D3 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F5DF8D7725FC472E001A99D3 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F5DF8D8125FC472F001A99D3 /* saunaPiPhoneTests */ = {
+			isa = PBXGroup;
+			children = (
+				F5DF8D8225FC472F001A99D3 /* saunaPiPhoneTests.swift */,
+				F5DF8D8425FC472F001A99D3 /* Info.plist */,
+			);
+			path = saunaPiPhoneTests;
+			sourceTree = "<group>";
+		};
+		F5DF8D8C25FC472F001A99D3 /* saunaPiPhoneUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F5DF8D8D25FC472F001A99D3 /* saunaPiPhoneUITests.swift */,
+				F5DF8D8F25FC472F001A99D3 /* Info.plist */,
+			);
+			path = saunaPiPhoneUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F5DF8D6C25FC472B001A99D3 /* saunaPiPhone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5DF8D9225FC472F001A99D3 /* Build configuration list for PBXNativeTarget "saunaPiPhone" */;
+			buildPhases = (
+				F5DF8D6925FC472B001A99D3 /* Sources */,
+				F5DF8D6A25FC472B001A99D3 /* Frameworks */,
+				F5DF8D6B25FC472B001A99D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = saunaPiPhone;
+			productName = saunaPiPhone;
+			productReference = F5DF8D6D25FC472B001A99D3 /* saunaPiPhone.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F5DF8D7D25FC472F001A99D3 /* saunaPiPhoneTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5DF8D9525FC472F001A99D3 /* Build configuration list for PBXNativeTarget "saunaPiPhoneTests" */;
+			buildPhases = (
+				F5DF8D7A25FC472F001A99D3 /* Sources */,
+				F5DF8D7B25FC472F001A99D3 /* Frameworks */,
+				F5DF8D7C25FC472F001A99D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F5DF8D8025FC472F001A99D3 /* PBXTargetDependency */,
+			);
+			name = saunaPiPhoneTests;
+			productName = saunaPiPhoneTests;
+			productReference = F5DF8D7E25FC472F001A99D3 /* saunaPiPhoneTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F5DF8D8825FC472F001A99D3 /* saunaPiPhoneUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5DF8D9825FC472F001A99D3 /* Build configuration list for PBXNativeTarget "saunaPiPhoneUITests" */;
+			buildPhases = (
+				F5DF8D8525FC472F001A99D3 /* Sources */,
+				F5DF8D8625FC472F001A99D3 /* Frameworks */,
+				F5DF8D8725FC472F001A99D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F5DF8D8B25FC472F001A99D3 /* PBXTargetDependency */,
+			);
+			name = saunaPiPhoneUITests;
+			productName = saunaPiPhoneUITests;
+			productReference = F5DF8D8925FC472F001A99D3 /* saunaPiPhoneUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F5DF8D6525FC472B001A99D3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					F5DF8D6C25FC472B001A99D3 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					F5DF8D7D25FC472F001A99D3 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = F5DF8D6C25FC472B001A99D3;
+					};
+					F5DF8D8825FC472F001A99D3 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = F5DF8D6C25FC472B001A99D3;
+					};
+				};
+			};
+			buildConfigurationList = F5DF8D6825FC472B001A99D3 /* Build configuration list for PBXProject "saunaPiPhone" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F5DF8D6425FC472B001A99D3;
+			productRefGroup = F5DF8D6E25FC472B001A99D3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F5DF8D6C25FC472B001A99D3 /* saunaPiPhone */,
+				F5DF8D7D25FC472F001A99D3 /* saunaPiPhoneTests */,
+				F5DF8D8825FC472F001A99D3 /* saunaPiPhoneUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F5DF8D6B25FC472B001A99D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5DF8D7825FC472E001A99D3 /* Preview Assets.xcassets in Resources */,
+				F5DF8D7525FC472E001A99D3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5DF8D7C25FC472F001A99D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5DF8D8725FC472F001A99D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F5DF8D6925FC472B001A99D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F54C56C225FC4968002A541D /* ReportBlock.swift in Sources */,
+				F5DF8D7325FC472B001A99D3 /* ContentView.swift in Sources */,
+				F5DF8D7125FC472B001A99D3 /* saunaPiPhoneApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5DF8D7A25FC472F001A99D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5DF8D8325FC472F001A99D3 /* saunaPiPhoneTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5DF8D8525FC472F001A99D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5DF8D8E25FC472F001A99D3 /* saunaPiPhoneUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F5DF8D8025FC472F001A99D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F5DF8D6C25FC472B001A99D3 /* saunaPiPhone */;
+			targetProxy = F5DF8D7F25FC472F001A99D3 /* PBXContainerItemProxy */;
+		};
+		F5DF8D8B25FC472F001A99D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F5DF8D6C25FC472B001A99D3 /* saunaPiPhone */;
+			targetProxy = F5DF8D8A25FC472F001A99D3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F5DF8D9025FC472F001A99D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F5DF8D9125FC472F001A99D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F5DF8D9325FC472F001A99D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"saunaPiPhone/Preview Content\"";
+				DEVELOPMENT_TEAM = JL8D2HNHVK;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = saunaPiPhone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.thehalonencompany.saunaPiPhone.saunaPiPhone;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F5DF8D9425FC472F001A99D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"saunaPiPhone/Preview Content\"";
+				DEVELOPMENT_TEAM = JL8D2HNHVK;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = saunaPiPhone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.thehalonencompany.saunaPiPhone.saunaPiPhone;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F5DF8D9625FC472F001A99D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JL8D2HNHVK;
+				INFOPLIST_FILE = saunaPiPhoneTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.thehalonencompany.saunaPiPhone.saunaPiPhoneTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/saunaPiPhone.app/saunaPiPhone";
+			};
+			name = Debug;
+		};
+		F5DF8D9725FC472F001A99D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JL8D2HNHVK;
+				INFOPLIST_FILE = saunaPiPhoneTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.thehalonencompany.saunaPiPhone.saunaPiPhoneTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/saunaPiPhone.app/saunaPiPhone";
+			};
+			name = Release;
+		};
+		F5DF8D9925FC472F001A99D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JL8D2HNHVK;
+				INFOPLIST_FILE = saunaPiPhoneUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.thehalonencompany.saunaPiPhone.saunaPiPhoneUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = saunaPiPhone;
+			};
+			name = Debug;
+		};
+		F5DF8D9A25FC472F001A99D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JL8D2HNHVK;
+				INFOPLIST_FILE = saunaPiPhoneUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.thehalonencompany.saunaPiPhone.saunaPiPhoneUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = saunaPiPhone;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F5DF8D6825FC472B001A99D3 /* Build configuration list for PBXProject "saunaPiPhone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5DF8D9025FC472F001A99D3 /* Debug */,
+				F5DF8D9125FC472F001A99D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5DF8D9225FC472F001A99D3 /* Build configuration list for PBXNativeTarget "saunaPiPhone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5DF8D9325FC472F001A99D3 /* Debug */,
+				F5DF8D9425FC472F001A99D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5DF8D9525FC472F001A99D3 /* Build configuration list for PBXNativeTarget "saunaPiPhoneTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5DF8D9625FC472F001A99D3 /* Debug */,
+				F5DF8D9725FC472F001A99D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5DF8D9825FC472F001A99D3 /* Build configuration list for PBXNativeTarget "saunaPiPhoneUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5DF8D9925FC472F001A99D3 /* Debug */,
+				F5DF8D9A25FC472F001A99D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F5DF8D6525FC472B001A99D3 /* Project object */;
+}
