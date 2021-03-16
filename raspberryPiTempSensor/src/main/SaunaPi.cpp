@@ -31,6 +31,10 @@ void logToTmpSaunaPiLog(
         std::string const &line
 );
 
+void logToTmpSaunaPiEnvironment(
+        std::string const &line
+);
+
 int run = 1;
 void signalHandler(
         int signum
@@ -49,7 +53,7 @@ void signalSetup(){
 
 int main(
 ) {
-    TempSensor tempSensor(logToTmpSaunaPiLog);
+    TempSensor tempSensor(logToTmpSaunaPiLog, logToTmpSaunaPiEnvironment);
     signalSetup();
     while(run)
     {
@@ -66,6 +70,16 @@ void logToTmpSaunaPiLog(
     time_t t = time( nullptr );
     ofs << std::put_time( localtime( &t ), "%c %Z" ) << "\t";
     ofs << line << "\n";
+    ofs.close();
+    ofs << std::unitbuf; // enable automatic flushing
+}
+
+void logToTmpSaunaPiEnvironment(
+        std::string const &line
+) {
+    std::ofstream ofs("/tmp/saunapidata.json", std::ios_base::trunc);
+    time_t t = time( nullptr );
+    ofs << line << std::put_time( localtime( &t ), "%c %Z" ) << "\"\n}";
     ofs.close();
     ofs << std::unitbuf; // enable automatic flushing
 }

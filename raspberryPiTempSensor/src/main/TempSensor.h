@@ -11,11 +11,13 @@
 #include "saunaPiData/SaunaPiData.h"
 
 typedef void (*loggerCallback)(std::string const &line);
+typedef void (*environmentLoggerCallback)(std::string const &line);
 
 class TempSensor {
 public:
     explicit TempSensor(
-            loggerCallback _logger
+            loggerCallback _logger,
+            environmentLoggerCallback _environmentLoggerCallback
     );
 
     void readAndPublishFindings(
@@ -25,6 +27,11 @@ private:
     SaunaPiDataFileSystem saunaPiFs;
     SaunaPiData saunaPiData;
     loggerCallback logger;
+    environmentLoggerCallback dataJsonLogger;
+
+    void recordToTmpSaunaPiDataJson(
+            float const thermometerTemp
+    );
 
     void recordToTmpSaunaPiLog(
             float const humidity,

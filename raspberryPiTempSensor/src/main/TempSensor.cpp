@@ -12,9 +12,11 @@ TEMP_MAP
 static simpleTools::interpolation <float, float> piThermInterp(piThermometer, 0.01);
 
 TempSensor::TempSensor(
-        loggerCallback _logger
+        loggerCallback _logger,
+        environmentLoggerCallback _environmentLoggerCallback
 ):
-    logger(_logger)
+        logger(_logger),
+        dataJsonLogger(_environmentLoggerCallback)
 {
     saunaPiData.setFileSystem(&saunaPiFs);
 }
@@ -39,6 +41,7 @@ void TempSensor::readAndPublishFindings(
 
         if(std::get<0>(thermometerTemp) == simpleTools::InterpolationResultType::OK)
         {
+            recordToTmpSaunaPiDataJson(std::get<1>(thermometerTemp));
             recordToTmpSaunaPiLog(humidity, temperature, std::get<1>(thermometerTemp));
 
             //return success, data/png file path
@@ -68,6 +71,7 @@ void TempSensor::executePlot(
         std::string const &highTempLabel,
         std::string const &currentTempLabel
 ) {
+
 	if(path.length() > 0)
 	{
 	    std::string cmd = "/home/pi/saunaPi/saunaPiPlotter/createPlotCmd.sh ";
@@ -107,4 +111,13 @@ void TempSensor::recordToTmpSaunaPiLog(
     line += "\t Optimal index (200 is ideal): ";
     line += std::to_string((int) (humidity + thermometerTemp));
     logger(line);
+}
+
+void TempSensor::recordToTmpSaunaPiDataJson(
+        float const thermometerTemp
+) {
+    std::string line{"{ \n\"temperature\": "};
+    line += std::to_string((int) thermometerTemp);
+    line += ",\n\"timeStamp\": \"";
+    dataJsonLogger(line);
 }
