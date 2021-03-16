@@ -10,7 +10,7 @@ import SwiftUI
 struct ReportBlock: View {
     //    var temperature: String
     //    var timeStamp: String
-    @StateObject var saunaEnvironment: SaunaEnvironment
+    @EnvironmentObject var saunaEnvironment: SaunaEnvironment
     var body: some View {
         VStack(alignment: .leading) {
             ZStack {
@@ -43,16 +43,16 @@ struct ReportBlock: View {
 struct ReportBlock_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            ReportBlock(saunaEnvironment:
+            ReportBlock().environmentObject(
                             SaunaEnvironment(temperature: 60,
                                              timeStamp: "right now!"))
-            ReportBlock(saunaEnvironment:
+            ReportBlock().environmentObject(
                             SaunaEnvironment(temperature: 99,
                                              timeStamp: "right now!"))
-            ReportBlock(saunaEnvironment:
+            ReportBlock().environmentObject(
                             SaunaEnvironment(temperature: 135,
                                              timeStamp: "right now2!"))
-            ReportBlock(saunaEnvironment:
+            ReportBlock().environmentObject(
                             SaunaEnvironment(temperature: 165,
                                              timeStamp: "right now3!"))
         }

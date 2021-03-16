@@ -8,23 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var saunaEnvironment = SaunaEnvironment()
     var body: some View {
         ZStack {
             Text("")
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.white)
                 .onTapGesture {
-                    getSaunaData()
+                    getSaunaData(saunaEnvironment)
                 }
-            ReportBlock(saunaEnvironment: SaunaEnvironment())
+            ReportBlock()
                 .onTapGesture {
-                    getSaunaData()
+                    getSaunaData(saunaEnvironment)
                 }
         }
+        .environmentObject(saunaEnvironment)
     }
 }
 
-func getSaunaData() {
+func getSaunaData(_ saunaEnvironment: SaunaEnvironment) {
     let url = URL(string: "http://saunapi.harmon/data.json")!
     
     let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
@@ -35,11 +37,15 @@ func getSaunaData() {
         do {
             let saunaEnvironmentData = try decoder.decode(SaunaEnvironmentData.self, from: data)
             print(saunaEnvironmentData)
+            //We are on a background thread. Need to perform environment object update on main.
+            DispatchQueue.main.async {
+                saunaEnvironment.temperature = saunaEnvironmentData.temperature
+                saunaEnvironment.timeStamp = saunaEnvironmentData.timeStamp
+            }
         } catch {
             print(error)
         }
     }
-    
     task.resume()
 }
 
