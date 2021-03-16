@@ -21,11 +21,11 @@ class SaunaEnvironment: ObservableObject {
             return .blue
         }
         switch temp {
-        case 0..<90:
+        case ..<90:
             return .blue
-        case 91..<129:
+        case ..<129:
             return .green
-        case 130..<149:
+        case ..<149:
             print("orange")
             return .orange
         default:
