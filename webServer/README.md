@@ -41,3 +41,15 @@ sudo ln -s /var/SaunaPiData/currentStatus.png currentStatus.png
 Now we don’t have to fool with updates to /var/www/html permissions.
 
 Note the addition of "?a=" + Math.random().toString() to the image src tag. This is because Safari on iOS doesn't seem to want to update the image with every refresh. By adding a random string to the tag, the current image is always presented.
+
+
+In order to get the iPhone to read current conditions, all that's necessary is: http://saunapi.harmon/data.json
+
+However, a symbolic link is helpful again. In this case:
+
+```
+cd /var/www/html
+ln -s /var/SaunaPi/saunapidata.json data.json
+```
+
+Now the SaunaPi app updates /var/SaunaPi/saunapidata.json with temperature & timestamp. The iPhone merely executes the http query and parses the json for presentation.
