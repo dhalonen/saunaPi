@@ -11,7 +11,7 @@ struct ContentView: View {
     @StateObject var saunaEnvironment = SaunaEnvironment()
     var body: some View {
         ZStack {
-            ReportBlock()
+            ReportBlockContainer()
             //Put a transparent text view over everything. This receives taps for updates.
             Text("")
                 .frame(maxWidth: .infinity, maxHeight: .infinity)

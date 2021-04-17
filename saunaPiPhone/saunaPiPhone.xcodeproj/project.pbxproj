@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F54C56C225FC4968002A541D /* ReportBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54C56C125FC4968002A541D /* ReportBlock.swift */; };
+		F56C0049262A77800012479B /* ReportBlockContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56C0048262A77800012479B /* ReportBlockContainer.swift */; };
 		F59D757626002A8900A43081 /* SaunaEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59D757526002A8900A43081 /* SaunaEnvironment.swift */; };
 		F5DF8D7125FC472B001A99D3 /* saunaPiPhoneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DF8D7025FC472B001A99D3 /* saunaPiPhoneApp.swift */; };
 		F5DF8D7325FC472B001A99D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DF8D7225FC472B001A99D3 /* ContentView.swift */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		F54C56C125FC4968002A541D /* ReportBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportBlock.swift; sourceTree = "<group>"; };
+		F56C0048262A77800012479B /* ReportBlockContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportBlockContainer.swift; sourceTree = "<group>"; };
 		F59D757526002A8900A43081 /* SaunaEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaunaEnvironment.swift; sourceTree = "<group>"; };
 		F5DF8D6D25FC472B001A99D3 /* saunaPiPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = saunaPiPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5DF8D7025FC472B001A99D3 /* saunaPiPhoneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saunaPiPhoneApp.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				F5DF8D7625FC472E001A99D3 /* Preview Content */,
 				F54C56C125FC4968002A541D /* ReportBlock.swift */,
 				F59D757526002A8900A43081 /* SaunaEnvironment.swift */,
+				F56C0048262A77800012479B /* ReportBlockContainer.swift */,
 			);
 			path = saunaPiPhone;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				F54C56C225FC4968002A541D /* ReportBlock.swift in Sources */,
 				F5DF8D7325FC472B001A99D3 /* ContentView.swift in Sources */,
 				F59D757626002A8900A43081 /* SaunaEnvironment.swift in Sources */,
+				F56C0049262A77800012479B /* ReportBlockContainer.swift in Sources */,
 				F5DF8D7125FC472B001A99D3 /* saunaPiPhoneApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
