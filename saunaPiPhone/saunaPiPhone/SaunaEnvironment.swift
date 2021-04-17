@@ -11,7 +11,7 @@ class SaunaEnvironment: ObservableObject {
     @Published var temperature: Int?
     @Published var timeStamp: String?
     
-    init(temperature: Int = 65, timeStamp: String = "January 1, 1970 7:00 PM EST") {
+    init(temperature: Int = 0, timeStamp: String = "") {
         self.temperature = temperature
         self.timeStamp = timeStamp
     }
