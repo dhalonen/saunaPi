@@ -11,21 +11,12 @@ struct ContentView: View {
     @StateObject var saunaEnvironment = SaunaEnvironment()
     var body: some View {
         ZStack {
+            ReportBlock()
+            //Put a transparent text view over everything. This receives taps for updates.
             Text("")
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color(.systemBackground))
-                .onTapGesture {
-                    getSaunaData(saunaEnvironment)
-                }
-            ReportBlock()
-                .onAppear(){
-                    print("onAppear")
-                    getSaunaData(saunaEnvironment)
-                }
-                .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { (_) in
-                    print("Content View becoming active")
-                    getSaunaData(saunaEnvironment)
-                }
+                .opacity(0.01)
                 .onTapGesture {
                     getSaunaData(saunaEnvironment)
                 }

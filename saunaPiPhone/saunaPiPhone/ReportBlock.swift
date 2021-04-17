@@ -36,7 +36,16 @@ struct ReportBlock: View {
                     }
                 }
             }
-        }.background(Color(.systemBackground))
+        }
+        .background(Color(.systemBackground))
+        .onAppear(){
+            print("onAppear")
+            getSaunaData(saunaEnvironment)
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { (_) in
+            print("Content View becoming active")
+            getSaunaData(saunaEnvironment)
+        }
     }
 
     func hideTemp(_ temp: Int) -> Double {
