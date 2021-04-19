@@ -8,14 +8,11 @@
 import SwiftUI
 
 struct ReportBlock: View {
-    //    var temperature: String
-    //    var timeStamp: String
+
     @Environment(\.colorScheme) var envColorScheme
     @EnvironmentObject var saunaEnvironment: SaunaEnvironment
     var body: some View {
-        VStack(alignment: .leading) {
             ZStack {
-                VStack(alignment: .leading){
                     HStack {
                         Text(String(saunaEnvironment.temperature ?? 65))
                             .bold()
@@ -25,8 +22,6 @@ struct ReportBlock: View {
                             .opacity(hideTemp(saunaEnvironment.temperature!))
                         Spacer()
                     }
-                }
-                VStack(alignment: .trailing) {
                     HStack {
                         Spacer()
                         Text(saunaEnvironment.timeStamp ?? "Missing data")
@@ -34,10 +29,8 @@ struct ReportBlock: View {
                             .foregroundColor(Color(.label))
                         
                     }
-                }
             }
-        }
-        .background(Color(.systemBackground))
+
         .onAppear(){
             print("onAppear")
             getSaunaData(saunaEnvironment)

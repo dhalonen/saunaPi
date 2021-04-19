@@ -19,10 +19,8 @@ struct ReportBlockContainer: View {
     var body: some View {
         GeometryReader { geo in
             ReportBlock()
-//                .border(Color.blue, width: 1)
                 .offset(y: saunaEnvironment.computeOffset(height: geo.size.height) - blockSize + topReportBlockPadding
                 )
-//                .border(Color.green, width: 1)
         }
     }
 }
