@@ -32,4 +32,12 @@ class SaunaEnvironment: ObservableObject {
             return .red
         }
     }
+    
+    func computeOffset(height: CGFloat) -> CGFloat {
+        guard let temperature = temperature else { return height } //- height / 185 * 65}
+        var iTemp = CGFloat(temperature)
+        let offset = height - (height / 185) * iTemp
+        print("\(iTemp)    \(offset)  \(height)")
+        return offset
+    }
 }
