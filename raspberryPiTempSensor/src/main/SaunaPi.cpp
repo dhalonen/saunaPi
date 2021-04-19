@@ -77,7 +77,7 @@ void logToTmpSaunaPiLog(
 void logToTmpSaunaPiEnvironment(
         std::string const &line
 ) {
-    std::ofstream ofs("/tmp/saunapidata.json", std::ios_base::trunc);
+    std::ofstream ofs("/var/SaunaPiData/saunapidata.json", std::ios_base::trunc);
     time_t t = time( nullptr );
     ofs << line << std::put_time( localtime( &t ), "%c %Z" ) << "\"\n}";
     ofs.close();
