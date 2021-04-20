@@ -26,9 +26,16 @@ struct ContentView: View {
     }
 }
 
+private func urlToSaunaData() -> String {
+    if let key = UserDefaults.standard.string(forKey: "dataUrl"){
+        return key
+    }
+    return "http://saunapi.harmon/data.json"
+}
+
 func getSaunaData(_ saunaEnvironment: SaunaEnvironment) {
-    let url = URL(string: "http://saunapi.harmon/data.json")!
-    
+    let url = URL(string: urlToSaunaData())!
+
     //TODO convert this to async
     let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
         guard let data = data else { return }
