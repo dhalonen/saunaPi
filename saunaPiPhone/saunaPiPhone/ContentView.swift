@@ -9,20 +9,30 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var saunaEnvironment = SaunaEnvironment()
+    
+    @State private var settingsSheet = false
+    
     var body: some View {
-        ZStack {
-            ReportBlockContainer()
-            //Put a transparent text view over everything. This receives taps for updates.
-            Text("")
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color(.systemBackground))
-                .opacity(0.01)
-                .onTapGesture {
-                    getSaunaData(saunaEnvironment)
-                }
+        VStack(alignment: .leading) {
+            SettingsControl(settingsSheet: $settingsSheet)
+            
+            ZStack {
+                ReportBlockContainer()
+                //Put a transparent text view over everything. This receives taps for updates.
+                Text("")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color(.systemBackground))
+                    .opacity(0.01)
+                    .onTapGesture {
+                        getSaunaData(saunaEnvironment)
+                    }
+            }
+            .background(Color(.systemBackground))
+            .environmentObject(saunaEnvironment)
         }
-        .background(Color(.systemBackground))
-        .environmentObject(saunaEnvironment)
+        .sheet(isPresented: $settingsSheet, content: {
+            SettingSheet()
+        })
     }
 }
 
@@ -35,7 +45,7 @@ private func urlToSaunaData() -> String {
 
 func getSaunaData(_ saunaEnvironment: SaunaEnvironment) {
     let url = URL(string: urlToSaunaData())!
-
+    
     //TODO convert this to async
     let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
         guard let data = data else { return }
